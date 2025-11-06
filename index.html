@@ -66,8 +66,8 @@
                 comic: ['Panel 1: {name} on podium, "Third term!" 😎 Panel 2: Advisor whispers, "22nd Amendment blocks it" ⚠️ Panel 3: Judges rule thumbs down 👎. Your panel: {user}']
             },
             '25th': {
-                paragraph: ['During a crisis, President {name} falls ill and can't decide. The VP invokes the 25th Amendment, stepping in with cabinet approval. Leadership continues smoothly. Your addition: {user}.'],
-                skit: ['{name}: "I... can't focus." VP: "We must use the 25th—Section 4 for disability." Cabinet: "Agreed!" [VP takes oath] {name}: "Thanks, buddy." Your dialogue: {user}'],
+                paragraph: ['During a crisis, President {name} falls ill and can\'t decide. The VP invokes the 25th Amendment, stepping in with cabinet approval. Leadership continues smoothly. Your addition: {user}.'],
+                skit: ['{name}: "I... can\'t focus." VP: "We must use the 25th—Section 4 for disability." Cabinet: "Agreed!" [VP takes oath] {name}: "Thanks, buddy." Your dialogue: {user}'],
                 comic: ['Panel 1: {name} dizzy in Oval Office 😵 Panel 2: VP & cabinet vote "25th invoke!" 📜 Panel 3: VP at desk, thumbs up 👍. Your panel: {user}']
             },
             'pendleton': {
@@ -91,14 +91,12 @@
 
         let currentTopic = '', currentFormat = 'paragraph', currentScenario = '';
 
-        // Tooltips
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('[data-tip]').forEach(el => {
                 el.innerHTML += `<span class="tooltiptext">${el.dataset.tip}</span>`;
             });
         });
 
-        // Format placeholders
         document.querySelectorAll('input[name="format"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
                 const input = document.getElementById('userInput');
@@ -141,4 +139,3 @@
     </script>
 </body>
 </html>
-How It Plays Now (Test Your "Third Term"
