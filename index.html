@@ -29,7 +29,7 @@
         <select id="topic">
             <option value="">Choose...</option>
             <option value="22nd" data-tip="Limits presidents to 2 terms (ratified 1951) to prevent long-term power grabs.">22nd Amendment</option>
-            <option value="25th" data-tip="Handles presidential disability/succession (ratified 1967), e.g., VP steps in if prez can't serve.">25th Amendment</option>
+            <option value="25th" data-tip="Handles presidential disability/succession (ratified 1967), e.g., VP steps in if prez cant serve.">25th Amendment</option>
             <option value="pendleton" data-tip="1883 Civil Service Reform Act: Merit-based hiring for fed jobs, ends spoils system.">Pendleton Act</option>
             <option value="hatch" data-tip="1939 Act: Bans fed employees from political campaigning on the job to stay neutral.">Hatch Act</option>
         </select>
@@ -42,7 +42,7 @@
         </div>
 
         <label>Step 3: Your Idea (optional—mixes in!)</label>
-        <textarea id="userInput" placeholder="E.g., 'The president gets sick during a crisis...' or leave blank for random." rows="3"></textarea>
+        <textarea id="userInput" placeholder="E.g., The president gets sick during a crisis... or leave blank for random." rows="3"></textarea>
         <small><em>💡 Tap mic on mobile for voice input.</em></small>
 
         <button onclick="generateStarter()">Get Starter Scenario</button>
@@ -51,7 +51,7 @@
 
     <div id="builder" class="step" style="display: none;">
         <label>Step 4: Refine (add your twist!)</label>
-        <textarea id="refineInput" placeholder="What happens next? Why does the law apply? (E.g., 'Add a funny protest' or 'Explain the VP's role')" rows="4"></textarea>
+        <textarea id="refineInput" placeholder="What happens next? Why does the law apply? (E.g., Add a funny protest or Explain the VPs role)" rows="4"></textarea>
         <button onclick="refineScenario()">Polish & Finalize</button>
     </div>
 
@@ -60,81 +60,81 @@
 
     <script>
         const templates = {
-            '22nd': {
-                paragraph: ['President {name} announces a third-term run, ignoring term limits. Supporters rally, but the Supreme Court cites the 22nd Amendment, forcing a new candidate. Chaos ensues as democracy holds firm! Your twist: {user}.'],
-                skit: ['President {name}: "I\'m running again—America needs me!" Advisor: "Sir, the 22nd Amendment says no after two terms!" {name}: "Nonsense!" [Crowd boos] Court: "Case dismissed—term limits enforced." End scene. Your line: {user}'],
-                comic: ['Panel 1: {name} on podium, "Third term!" 😎 Panel 2: Advisor whispers, "22nd Amendment blocks it" ⚠️ Panel 3: Judges rule thumbs down 👎. Your panel: {user}']
+            "22nd": {
+                "paragraph": ["President {name} announces a third-term run, ignoring term limits. Supporters rally, but the Supreme Court cites the 22nd Amendment, forcing a new candidate. Chaos ensues as democracy holds firm! Your twist: {user}."],
+                "skit": ["President {name}: \"I am running again—America needs me!\" Advisor: \"Sir, the 22nd Amendment says no after two terms!\" {name}: \"Nonsense!\" [Crowd boos] Court: \"Case dismissed—term limits enforced.\" End scene. Your line: {user}"],
+                "comic": ["Panel 1: {name} on podium, \"Third term!\" 😎 Panel 2: Advisor whispers, \"22nd Amendment blocks it\" ⚠️ Panel 3: Judges rule thumbs down 👎. Your panel: {user}"]
             },
-            '25th': {
-                paragraph: ['During a crisis, President {name} falls ill and can\'t decide. The VP invokes the 25th Amendment, stepping in with cabinet approval. Leadership continues smoothly. Your addition: {user}.'],
-                skit: ['{name}: "I... can\'t focus." VP: "We must use the 25th—Section 4 for disability." Cabinet: "Agreed!" [VP takes oath] {name}: "Thanks, buddy." Your dialogue: {user}'],
-                comic: ['Panel 1: {name} dizzy in Oval Office 😵 Panel 2: VP & cabinet vote "25th invoke!" 📜 Panel 3: VP at desk, thumbs up 👍. Your panel: {user}']
+            "25th": {
+                "paragraph": ["During a crisis, President {name} falls ill and can not decide. The VP invokes the 25th Amendment, stepping in with cabinet approval. Leadership continues smoothly. Your addition: {user}."],
+                "skit": ["{name}: \"I can not focus.\" VP: \"We must use the 25th—Section 4 for disability.\" Cabinet: \"Agreed!\" [VP takes oath] {name}: \"Thanks, buddy.\" Your dialogue: {user}"],
+                "comic": ["Panel 1: {name} dizzy in Oval Office 😵 Panel 2: VP & cabinet vote \"25th invoke!\" 📜 Panel 3: VP at desk, thumbs up 👍. Your panel: {user}"]
             },
-            'pendleton': {
-                paragraph: ['Fed boss {name} hires a buddy over qualified applicants, sparking outrage. The Pendleton Act demands merit-based picks, so an investigation restores fairness. Your story: {user}.'],
-                skit: ['Boss {name}: "You\'re hired—family first!" Employee: "That breaks Pendleton Act—merit only!" Inspector: "Audit time!" {name}: "Oops." Resolution: Fair hires. Your bit: {user}'],
-                comic: ['Panel 1: {name} shakes hands with pal 😏 Panel 2: "Pendleton violation!" 🚨 Panel 3: Merit test passes, high-fives 🎉. Your panel: {user}']
+            "pendleton": {
+                "paragraph": ["Fed boss {name} hires a buddy over qualified applicants, sparking outrage. The Pendleton Act demands merit-based picks, so an investigation restores fairness. Your story: {user}."],
+                "skit": ["Boss {name}: \"You are hired—family first!\" Employee: \"That breaks Pendleton Act—merit only!\" Inspector: \"Audit time!\" {name}: \"Oops.\" Resolution: Fair hires. Your bit: {user}"],
+                "comic": ["Panel 1: {name} shakes hands with pal 😏 Panel 2: \"Pendleton violation!\" 🚨 Panel 3: Merit test passes, high-fives 🎉. Your panel: {user}"]
             },
-            'hatch': {
-                paragraph: ['Gov worker {name} campaigns on work time, posting ads. Colleagues report it—Hatch Act bans on-duty politicking, leading to a warning and neutrality training. Your angle: {user}.'],
-                skit: ['{name}: "Vote for my candidate—right from my desk!" Colleague: "Hatch Act says no politics at work!" HR: "Suspended for neutrality breach." {name}: "Lesson learned." Your line: {user}'],
-                comic: ['Panel 1: {name} typing rally post 💻 Panel 2: "Hatch Act alert!" 📢 Panel 3: Training session, lightbulb 💡. Your panel: {user}']
+            "hatch": {
+                "paragraph": ["Gov worker {name} campaigns on work time, posting ads. Colleagues report it—Hatch Act bans on-duty politicking, leading to a warning and neutrality training. Your angle: {user}."],
+                "skit": ["{name}: \"Vote for my candidate—right from my desk!\" Colleague: \"Hatch Act says no politics at work!\" HR: \"Suspended for neutrality breach.\" {name}: \"Lesson learned.\" Your line: {user}"],
+                "comic": ["Panel 1: {name} typing rally post 💻 Panel 2: \"Hatch Act alert!\" 📢 Panel 3: Training session, lightbulb 💡. Your panel: {user}"]
             }
         };
-        const names = ['Alex Rivera', 'Jordan Lee', 'Taylor Kim', 'Casey Patel', 'Morgan Quinn'];
+        const names = ["Alex Rivera", "Jordan Lee", "Taylor Kim", "Casey Patel", "Morgan Quinn"];
         const explanations = {
-            '22nd': 'The 22nd Amendment limits presidents to two terms to prevent power grabs, ensuring turnover.',
-            '25th': 'The 25th Amendment handles presidential inability, allowing VP/cabinet to act for stability.',
-            'pendleton': 'Pendleton Act mandates merit hiring in civil service to end corruption and favoritism.',
-            'hatch': 'Hatch Act restricts federal workers\' political activities on duty for government neutrality.'
+            "22nd": "The 22nd Amendment limits presidents to two terms to prevent power grabs, ensuring turnover.",
+            "25th": "The 25th Amendment handles presidential inability, allowing VP/cabinet to act for stability.",
+            "pendleton": "Pendleton Act mandates merit hiring in civil service to end corruption and favoritism.",
+            "hatch": "Hatch Act restricts federal workers political activities on duty for government neutrality."
         };
 
-        let currentTopic = '', currentFormat = 'paragraph', currentScenario = '';
+        let currentTopic = "", currentFormat = "paragraph", currentScenario = "";
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[data-tip]').forEach(el => {
-                el.innerHTML += `<span class="tooltiptext">${el.dataset.tip}</span>`;
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll("[data-tip]").forEach(function(el) {
+                el.innerHTML += "<span class=\"tooltiptext\">" + el.dataset.tip + "</span>";
             });
         });
 
-        document.querySelectorAll('input[name="format"]').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                const input = document.getElementById('userInput');
-                if (e.target.value === 'comic') input.placeholder = 'E.g., Panel 1: The prez collapses...';
-                else if (e.target.value === 'skit') input.placeholder = 'E.g., President: I feel dizzy... VP: We need to invoke...';
-                else input.placeholder = 'E.g., The president gets sick during a crisis...';
+        document.querySelectorAll("input[name=\"format\"]").forEach(function(radio) {
+            radio.addEventListener("change", function(e) {
+                const input = document.getElementById("userInput");
+                if (e.target.value === "comic") input.placeholder = "E.g., Panel 1: The prez collapses...";
+                else if (e.target.value === "skit") input.placeholder = "E.g., President: I feel dizzy... VP: We need to invoke...";
+                else input.placeholder = "E.g., The president gets sick during a crisis...";
             });
         });
 
         function generateStarter() {
-            currentTopic = document.getElementById('topic').value;
-            currentFormat = document.querySelector('input[name="format"]:checked').value;
-            if (!currentTopic) return alert('Pick a law first!');
+            currentTopic = document.getElementById("topic").value;
+            currentFormat = document.querySelector("input[name=\"format\"]:checked").value;
+            if (!currentTopic) return alert("Pick a law first!");
 
-            const userIdea = document.getElementById('userInput').value || '';
+            const userIdea = document.getElementById("userInput").value || "";
             const name = names[Math.floor(Math.random() * names.length)];
-            const template = templates[currentTopic][currentFormat];
-            currentScenario = template.replace('{name}', name).replace('{user}', userIdea ? `Incorporating: ${userIdea}. ` : '');
+            const template = templates[currentTopic][currentFormat][0];
+            currentScenario = template.replace("{name}", name).replace("{user}", userIdea ? "Incorporating: " + userIdea + ". " : "");
 
-            document.getElementById('starter').innerHTML = `<div class="randomizer"><strong>Generated Starter:</strong><br>${currentScenario}</div>`;
-            document.getElementById('wizard').style.display = 'none';
-            document.getElementById('builder').style.display = 'block';
+            document.getElementById("starter").innerHTML = "<div class=\"randomizer\"><strong>Generated Starter:</strong><br>" + currentScenario + "</div>";
+            document.getElementById("wizard").style.display = "none";
+            document.getElementById("builder").style.display = "block";
         }
 
         function refineScenario() {
-            const refine = document.getElementById('refineInput').value;
-            if (!refine) return alert('Add your idea to refine!');
+            const refine = document.getElementById("refineInput").value;
+            if (!refine) return alert("Add your idea to refine!");
 
-            currentScenario += `\n\nYour Creative Twist: ${refine}\n\n**Why It Applies:** ${explanations[currentTopic]}`;
+            currentScenario += "\n\nYour Creative Twist: " + refine + "\n\n**Why It Applies:** " + explanations[currentTopic];
 
-            document.getElementById('output').innerHTML = `<strong>Your Final Scenario:</strong><br>${currentScenario}`;
-            document.getElementById('builder').style.display = 'none';
-            document.getElementById('output').style.display = 'block';
-            document.getElementById('exportBtn').style.display = 'inline-block';
+            document.getElementById("output").innerHTML = "<strong>Your Final Scenario:</strong><br>" + currentScenario;
+            document.getElementById("builder").style.display = "none";
+            document.getElementById("output").style.display = "block";
+            document.getElementById("exportBtn").style.display = "inline-block";
         }
 
         function exportScenario() {
-            navigator.clipboard.writeText(currentScenario).then(() => alert('Copied! Paste for class skit, print for comic, or share.'));
+            navigator.clipboard.writeText(currentScenario).then(function() { alert("Copied! Paste for class skit, print for comic, or share."); });
         }
     </script>
 </body>
